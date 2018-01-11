@@ -13,6 +13,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ url('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
     <link href="{{ url('css/select2.min.css') }}" rel="stylesheet"/>
+    <link href="{{ url('css/cropper.css') }}" rel="stylesheet"/>
 
     @yield('header')
    
@@ -102,6 +103,7 @@
     <script src="{{ url('js/jquery.js') }}"></script>
     <script src="{{ url('js/popper/popper.js') }}"></script>
     <script src="{{ url('js/bootstrap.js') }}"></script>
+    <script src="{{ url('js/cropper.js') }}"></script>
         
     <script src="{{ url('js/select2.js') }}"></script>
  
