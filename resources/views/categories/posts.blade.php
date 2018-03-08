@@ -16,7 +16,7 @@
                     @foreach($posts as $post)
                         <h1><a href="{{ url('post/' . $post->id) }}">{{ $post->title }}</a></h1>
                         <p><small>{{ $post->created_at }}</small></p>
-                        <p>{{ $post->body }}</p>
+                        <p>{!! $post->body !!}</p>
                         <hr>
                     @endforeach
                 </div>

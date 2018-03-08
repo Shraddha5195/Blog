@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use App\Category;   
 
 class HomeController extends Controller
 {
@@ -23,11 +21,8 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() 
+    public function index()
     {
-        $cat = Category::find(2);
-        $post = Post::all();
-        return $post->$cat->name;
-        // return view('home');
+        return view('home');
     }
 }

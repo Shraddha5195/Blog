@@ -60,6 +60,16 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
+                        <div class="form-group-xs">
+                            <label for="gender" class="col-md-4 control-label">Gender</label>
+
+                            <div class="col-md-6">
+                                <input type="radio" name="gender" value="male" checked ="checked">Male
+                                <input type="radio" name="gender" value="female">Female
+
+                            </div>
+                        </div>
                        
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

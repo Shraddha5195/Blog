@@ -8,6 +8,7 @@ use App\Post;
 use App\Category;
 use Yajra\Datatables\Datatables;
 use DB;
+use Auth;
 
 
 use Illuminate\Contracts\Pagination\Paginator as PaginatorContract;
@@ -21,7 +22,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all(); 
+        // $id = Auth::user()->id;
+        // $posts = Post::whereRaw("find_in_set('".$id."', user_id)")->get();
         //$posts->toJson();
         
         return view('admin.posts.index', compact('posts'));
@@ -29,8 +31,11 @@ class PostController extends Controller
 
 
     public function getRowNumData(Request $request)
-    {   
+    {  
+        $id = Auth::user()->id;
+
         DB::statement(DB::raw('set @rownum=0'));
+
         $posts = Post::select([
             DB::raw('@rownum  := @rownum  + 1 AS rownum'),
                 'id',
@@ -38,7 +43,8 @@ class PostController extends Controller
                 'body',
                 'categories',
                 'created_at',                
-            ]);
+            ])
+        ->whereRaw("find_in_set('".$id."', user_id)");
 
         $datatables = DataTables()->of($posts)
         ->rawColumns(['check', 'action', 'body'])
@@ -95,6 +101,7 @@ class PostController extends Controller
             
         ]);
         $post = new Post;
+        $post->user_id = Auth::user()->id;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
 

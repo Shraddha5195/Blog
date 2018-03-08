@@ -128,7 +128,7 @@ $(function() {
 
         ],
         initComplete: function () {
-            this.api().columns([2,3,4,5,6]).every(function () {
+            this.api().columns([2,3,4,6]).every(function () {
                 var column = this;
                 var input = document.createElement("input");
                 $(input).attr( 'style','width: 100%');

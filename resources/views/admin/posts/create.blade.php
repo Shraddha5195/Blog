@@ -48,3 +48,10 @@
     </div>
 </div>
 @endsection
+@section('javascript')
+{{-- START SCRIPT FOR CKEDITOR --}}
+<script>
+    CKEDITOR.replace( 'article-ckeditor' );
+</script>
+{{-- END SCRIPT FOR CKEDITOR --}}
+@endsection

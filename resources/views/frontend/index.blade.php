@@ -11,6 +11,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    
                     @foreach($posts as $post)
                         <h1><a href="{{ url('post/' . $post->id) }}">{{ $post->title }}</a></h1>
                         <p><small>{{ $post->created_at->format('d-m-Y')}}</small></p>

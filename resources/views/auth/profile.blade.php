@@ -44,7 +44,23 @@ label {
           <tr>
             <td><label>Password:</label></td>
             <td class="c1"><a href="{{ url('admin/changepass') }}">Change password</a></td>
-          </tr>          
+          </tr> 
+          <tr>
+            <td><label>Gender:</label></td>
+            <td>
+              <?php
+            if( $user->gender  == 'female') {
+              echo '<input type="radio" name="gender" value="male">Male
+              <input type="radio" name="gender" value="female" checked ="checked">Female';
+            }
+            else{
+              echo '<input type="radio" name="gender" value="male" checked ="checked">Male
+              <input type="radio" name="gender" value="female">Female';
+            }
+                        
+             ?>
+            </td>
+          </tr>         
         </table>
       </div>      
       <div class="col-md-10 col-md-offset-2">  

@@ -13,8 +13,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ url('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet"/>
     <link href="{{ url('css/select2.min.css') }}" rel="stylesheet"/>
-    <link href="{{ url('css/cropper.css') }}" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> 
 
+    
     @yield('header')
    
 </head>
@@ -36,6 +37,9 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
+                    </a>
+                    <a class="navbar-brand" href="{{ url('/admin/timeline') }}">
+                        Home
                     </a>
 
                 </div>
@@ -98,13 +102,11 @@
         @yield('content')
     </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
     
     <script src="{{ url('js/jquery.js') }}"></script>
-    <script src="{{ url('js/popper/popper.js') }}"></script>
-    <script src="{{ url('js/bootstrap.js') }}"></script>
-    <script src="{{ url('js/cropper.js') }}"></script>
-        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="{{asset('js/ajaxscript.js')}}"></script>
     <script src="{{ url('js/select2.js') }}"></script>
  
     <script src="{{ url('http://localhost/blog/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
@@ -115,26 +117,13 @@
     <script type="text/javascript" src="{{ url('js/jquery.dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('js/dataTables.bootstrap4.min.js') }}"></script>
     {{-- END SCRIPT FOR DATATABLE --}}
-
-
-    {{-- START SCRIPT FOR CONFIRMATION BOOTSTRAP --}}
-
-    <script src="{{ url('js/bootstrap-confirmation.js') }}"></script>
-    
-    {{-- END SCRIPT FOR CONFIRMATION BOOTSTRAP --}}
-
-
-    {{-- START SCRIPT FOR CKEDITOR --}}
-    <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script>
     <script>
         $(document).ready(function() { $("#cat_list").select2({
             placeholder: "Select Categories"
         }); 
     });
     </script>
-    {{-- END SCRIPT FOR CKEDITOR --}}
+    
 
     {{-- START CONFIRM DIALOGUE FOR DELETE ALL --}}
     <script>

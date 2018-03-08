@@ -16,13 +16,13 @@ class UserController extends Controller
     public function update_avatar(Request $request){
          $this->validate($request, [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
         ]);
         $user = Auth::user();
     	// Handle the user upload of avatar
     	if($request->hasFile('avatar')){
     		$avatar = $request->file('avatar');
-    		$filename = time() . '.' . $avatar->getClientOriginalExtension();
+       		$filename = time() . '.' . $avatar->getClientOriginalExtension();
     		Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
 
     		
@@ -30,7 +30,8 @@ class UserController extends Controller
     		
     	}
         $user->name = $request->input('name');
-        $user->email = $request->input('email');    
+        $user->email = $request->input('email');
+        $user->gender = $request->input('gender');    
         $user->save();
 
     	return view('auth.profile', array('user' => Auth::user()) );
